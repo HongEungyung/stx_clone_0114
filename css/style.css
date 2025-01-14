@@ -1,0 +1,291 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+body {
+  height: 1500px;
+  /* 스크롤을 위한 임시 */
+}
+/* 공통영역 */
+.container {
+  /* background-color: rgb(116, 204, 255); */
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+.wrap{
+  position: relative;
+  display: block;
+}
+/* 상단 */
+.header {
+  /* background-color: aquamarine; */
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  z-index: 9999;
+  transition: all 0.5s;
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.2);
+}
+.header:hover {
+  /*.header 말고 .nav에 줘도 됨 호버 영역을 얼만큼 잡을거냐에 따라서*/
+  height: calc(330px + 80px);
+}
+.header::before {
+  /*before 하든 after 하든 상관없음. 어차피 position으로 위치 잡을 거니까*/
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #d8d8d8;
+}
+.header::after {
+  content: "";
+  position: absolute;
+  top: 80px; /*header와 border-botoom 1px 더한 값*/
+  left: 0;
+  width: 100%;
+  height: 330px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.header-inner {
+  position: relative;
+  /* background-color: rgb(112, 62, 158); */
+  width: 100%; /* 내용은 안에 100% 집어넣고 */
+  max-width: 1800px; /* inner 값은 1800px으로 */
+  margin: auto;
+  height: 80px;
+  display: flex;
+  z-index: 1;
+}
+/* 로고 */
+.logo {
+  width: 220px;
+  height: 100%;
+  margin-top: 20px;
+  /* background-color: aquamarine; */
+}
+.logo img {
+  width: 100%; /* 이미지에는 px 하지말고 % 로! */
+}
+/* 메뉴 */
+.nav {
+  position: relative;
+  width: calc(100% - 220px - 150px);
+  /* background-color: rgb(156, 255, 110); */
+}
+.gnb {
+  width: calc(178px * 6);
+  margin: auto;
+  height: 80px;
+  /* background-color: rgb(255, 168, 168); */
+  display: flex;
+}
+.gnb > li {
+  width: calc(100% / 6);
+  /* background-color: #fff; */
+  /* depth > li > a color를 흰색으로 하니까 안보여서 배경색 지움 */
+}
+.gnb > li > a {
+  font-size: 19px;
+  font-weight: bold;
+  line-height: 80px;
+}
+/* depth2 */
+.depth2 {
+  padding: 40px 0;
+}
+.depth2 > li > a {
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.92;
+}
+/* 언어 */
+.lang {
+  width: 150px;
+  /* background-color: rgb(189, 174, 255); */
+}
+.lang-list {
+  display: flex;
+  line-height: 80px;
+  text-align: center;
+}
+.lang-list li {
+  width: calc(100% / 2);
+  position: relative;
+}
+.lang-list li a {
+  display: block;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
+  color: #888;
+}
+.lang-list > li:last-child a {
+  color: #333;
+}
+.lang-list > li::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  width: 1px;
+  height: 11px;
+  background-color: #999;
+}
+.lang-list > li:first-child::after {
+  content: none; /* 앞에 있는 bar 없애기 */
+}
+/* 비주얼 */
+.visual {
+  position: relative;
+  display: block;
+  /* ↑이거 두 개는 선생님 스타일. 글자 때문에 기본으로 해놓는 것 */
+  width: 100%;
+  height: 910px;
+  background: url("../images/img_visual01.png") no-repeat center fixed;
+  background-size: cover;
+  padding-top: 80px;
+}
+.visual-inner {
+  position: relative;
+  height: 100%;
+  padding-top: 245px;
+  /* background-color: violet; */
+}
+.visual-slogan {
+  position: relative;
+  display: block;
+  font-size: 70px;
+  color: #fff;
+  font-weight: 500;
+}
+.visual-txt {
+  position: relative;
+  display: block;
+  margin-top: 42px;
+  font-size: 21px;
+  color: #fff;
+}
+.visual-bt {
+  display: block;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  font-size: 0;
+  width: 33px;
+  height: 33px;
+  background: url("../images/bg_common.png") no-repeat;
+  background-position: -122px 0; /* x축 -100px y축 0 */
+  /* background-color: rgb(44, 44, 44); */
+}
+.visual-slogan::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -48px;
+  left: 0;
+  width: 60px;
+  height: 5px;
+  background-color: #ed1c24;
+}
+/* 비즈니스 영역 */
+.business {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 100px 0;
+  background-color: beige;
+}
+.business-inner {
+  position: relative;
+  display: block;
+  background-color: rgb(176, 255, 222);
+}
+/* 비즈니스 상단 */
+.business-top {
+  text-align: center;
+  margin-bottom: 70px;
+}
+.business-title {
+  position: relative;
+  display: block;
+  font-size: 44px;
+  font-weight: 600;
+  color: #111;
+  padding-bottom: 31px;
+  /* background-color: aqua; */
+}
+.business-title::after {
+  position: absolute;
+  left: 49%;
+  bottom: 0;
+  width: 37px;
+  height: 4px;
+  background-color: #ed1c24;
+  content: "";
+}
+.business-desc {
+  margin-top: 30px;
+  line-height: 1.5;
+}
+/* 비즈니스 하단 */
+.business-bottom,
+.business-list {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 420px;
+  /* background-color: #ffa9e2; */
+}
+.business-list{
+  display: flex;
+}
+.business-list > li {
+  width: calc(100% / 5);
+  background: url("../images/img_business.png") no-repeat;
+  background-position: 0px 0px;
+}
+.business-list> li:first-child{
+  background-position: calc(240px * 0) 0px;
+}
+.business-list> li:nth-child(2){
+  background-position:calc(240px * -1) 0px;
+}
+.business-list> li:nth-child(3){
+  background-position:calc(240px * -2) 0px;
+}
+.business-list> li:nth-child(4){
+  background-position:calc(240px * -3) 0px;
+}
+.business-list> li:nth-child(5){
+  background-position:calc(240px * -4) 0px;
+}
+.business-list > li > a{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+  padding: 100px 0;
+  transition: all 0.5s;
+  background-color: rgba(244, 128, 37, 0);
+}
+.business-list > li > a:hover{
+  background-color: rgb(255, 145, 20);
+}
